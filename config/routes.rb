@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  route 'overwatch_class#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'about/index'
+  root 'overwatch_class#index'
+  get "/classes", to: "overwatch_class#index", as: "overwatch_classes"
 end

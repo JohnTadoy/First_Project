@@ -15,8 +15,5 @@ require "open-uri"
       description: m['description']
     )
   else
-    puts "Invalid #{OverwatchCharacter.count}"
   end
-    puts m['name']
   end
-  puts "Created #{OverwatchClass.count} classes"

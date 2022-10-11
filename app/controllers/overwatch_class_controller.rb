@@ -1,5 +1,9 @@
 class OverwatchClassController < ApplicationController
   def index
-    @classes = OverwatchClass.all
+    @hero = OverwatchCharacter.all
+  end
+
+  def show
+    @show = OverwatchCharacter.find(params[:id])
   end
 end

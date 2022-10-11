@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+  OverwatchClass.destroy_all
+  OverwatchCharacter.destroy_all
+
+   ow_hero = JSON.parse(URI.open("https://overwatch-hero-api.herokuapp.com/api/v1/heroes").read)
+
+   ow_hero.each do |m|
+    ow_class = OverwatchClass.find_or_create_by(name: m["role"])
+
+    if ow_class && ow_class.valid?
+    ow_create = ow_class.overwatch_characters.create(
+      name: m['name'],
+      difficulty: m['difficulty'],
+      image: m['image'],
+      description: m['description']
+    )
+  else
+    puts "Invalid #{OverwatchCharacter.count}"
+  end
+    puts m['name']
+  end
+  puts "Created #{OverwatchClass.count} classes"

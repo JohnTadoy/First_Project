@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_11_004659) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_11_011325) do
   create_table "overwatch_characters", force: :cascade do |t|
     t.string "name"
     t.integer "difficulty"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_004659) do
     t.integer "overwatch_class_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["overwatch_class_id"], name: "index_overwatch_characters_on_overwatch_class_id"
   end
 

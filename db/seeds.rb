@@ -14,6 +14,5 @@ require "open-uri"
       image: m['image'],
       description: m['description']
     )
-  else
   end
   end

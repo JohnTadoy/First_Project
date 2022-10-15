@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'overwatch_class#index'
   get "/classes", to: "overwatch_class#index", as: "overwatch_classes"
   get "/show/:id", to: "overwatch_class#show", as: "overwatch_characters"
+  get "/search", to: "overwatch_class#search"
 end

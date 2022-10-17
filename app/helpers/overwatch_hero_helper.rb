@@ -1,0 +1,2 @@
+module OverwatchHeroHelper
+end

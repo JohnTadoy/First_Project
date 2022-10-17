@@ -1,6 +1,6 @@
-class OverwatchClassController < ApplicationController
+class OverwatchHeroController < ApplicationController
   def index
-    @hero = OverwatchCharacter.all
+    @hero = OverwatchCharacter.order(:name).page(params[:page])
   end
 
   def show

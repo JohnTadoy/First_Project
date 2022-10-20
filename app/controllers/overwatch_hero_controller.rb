@@ -8,6 +8,15 @@ class OverwatchHeroController < ApplicationController
   end
 
   def search
-    @find = OverwatchCharacter.where("name LIKE ?", "%" + params[:q] + "%")
+    search = "%#{params[:name]}%"
+    hero = "%#{params[:class]}%"
+
+    if hero == ""
+      @hero = OverwatchCharacter.where("name LIKE ?", search)
+      @hero_pagination = OverwatchCharacter.where("name LIKE ?", wildcard_search).page params[:page]
+    else
+      @hero = OverwatchCharacter.where("name LIKE ? AND overwatch_class_id = ?", search, hero)
+      @hero_pagination = OverwatchCharacter.where("name LIKE ? AND overwatch_class_id = ?", search, hero).page params[:page]
+    end
   end
 end

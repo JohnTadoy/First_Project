@@ -1,15 +1,13 @@
  <div>
-  <h1>Overwatch Heroes</h1>
+  <h1 class = "text-center">Overwatch Heroes</h1>
 
   <div class="container grid">
     <% @hero.each do |m| %>
-    <div class="g-col-3 card">
-    <img src="<%= m.image %>" alt="<%= m.name %>" class ="img-fluid">
+    <div class="g-col-3 card shadow p-3 mb-5 bg-body rounded ">
+    <img src="<%= m.image %>" alt="<%= m.name %>" class ="img-fluid border">
     <a class="text-center" href="<%= overwatch_characters_path(m.id) %>"><%= m.name %></a>
     </div>
     <%end%>
   </div>
-  <ul class="pagination">
-  <li><%= paginate @hero %></li>
-  </ul>
+  <%= paginate @hero %>
 </div>

@@ -1,11 +1,14 @@
-<h1>Search Result</h1>
-<%@hero.each do |m|%>
-<div>
-  <H1><%= m.name %></H1>
-  <img src="<%= m.image %>" alt="<%= m.name %>">
-  <p><%= m.description %></p>
-  <p>Difficulty: <%= m.difficulty%></p>
-  <p>Class Type: <%= m.overwatch_class.name%></p>
-
+<h1 class = "text-center">Search Result</h1>
+<div class = "container grid text-center">
+  <%@hero.each do |m|%>
+  <div class="g-col-3 card shadow p-3 mb-5 bg-body rounded text-center">
+    <div>
+      <H2><%= m.name %></H2>
+      <img src="<%= m.image %>" alt="<%= m.name %>" class = "img-fluid">
+      <p><%= m.description %></p>
+      <p>Difficulty: <%= m.difficulty%></p>
+      <p>Class Type: <%= m.overwatch_class.name%></p>
+    </div>
+  </div>
+  <%end%>
 </div>
-<%end%>
